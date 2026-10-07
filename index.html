@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tengo algo para decirte ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500&display=swap');
+*{box-sizing:border-box}body{margin:0;background:#17120f;color:#f5eee4;font-family:Montserrat,Arial,sans-serif}
+#intro{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 40%,#3b2923,#17120f 65%);padding:24px}
+.card{max-width:520px}.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;opacity:.65;margin-bottom:18px}
+h1,h2,.caption,.stage{font-family:"Cormorant Garamond",Georgia,serif}h1{font-size:clamp(44px,11vw,72px);font-weight:500;line-height:.98;margin:0 0 28px}
+.sub{font-size:13px;opacity:.7;margin-bottom:32px}.bar{width:min(360px,92vw);height:16px;border:1px solid #cdbfae;border-radius:99px;padding:2px;margin:auto;cursor:pointer}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#6b2932,#b79a68);border-radius:99px;transition:.6s}
+.hint{font-size:11px;letter-spacing:.1em;opacity:.7;margin-top:15px}.stage{font-size:25px;line-height:1.2;min-height:92px;padding-top:24px}
+.hidden{display:none!important}#story{background:#f5eee4;color:#2b211c;min-height:100vh}
+.inner{max-width:760px;margin:auto;padding:30px 14px 70px}.header{text-align:center;padding:35px 5px}.header h2{font-size:46px;font-weight:500;margin:0}.header .eyebrow{color:#6b2932;opacity:.9}
+.chapter{margin-bottom:62px}.album{display:grid;grid-template-columns:1fr 1fr;gap:10px}.frame{background:white;padding:7px;box-shadow:0 8px 28px #2c1e1424}.frame:first-child{grid-column:1/-1}
+img{display:block;width:100%;height:auto}.caption{text-align:center;font-size:27px;line-height:1.25;max-width:690px;margin:24px auto 0}
+.final{text-align:center}.question{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(40px,9vw,68px);line-height:1.02;color:#6b2932;margin-top:18px}
+.divider{width:90px;height:1px;background:#b79a68;margin:24px auto}
+.reveal{opacity:0;transform:translateY(20px);transition:.8s}.visible{opacity:1;transform:none}
+@media(max-width:520px){.caption{font-size:24px}.album{gap:7px}.frame{padding:5px}}
+</style></head><body>
+<section id="intro"><div class="card">
+<div class="eyebrow">Para vos</div><h1>Tengo algo para decirte…</h1>
+<div class="sub">Tocá la barra para continuar</div>
+<div class="bar" id="bar"><div class="fill" id="fill"></div></div>
+<div class="hint" id="hint">TOQUE 1 DE 3</div><div class="stage" id="stage"></div>♡
+</div></section>
+<main id="story" class="hidden"><div class="inner">
+<header class="header reveal"><div class="eyebrow">Nuestra historia</div><h2>Todo lo que quiero decirte</h2></header>
+
+<section class="chapter reveal"><div class="album">
+<div class="frame"><img src="fotos/foto1.jpg"></div><div class="frame"><img src="fotos/foto1b.jpg"></div><div class="frame"><img src="fotos/foto1c.jpg"></div>
+</div><p class="caption">Desde el primer momento que te conocí, sentí algo distinto, algo que me hacía sentir tan bien, tan feliz y tranquilo.</p></section>
+
+<section class="chapter reveal"><div class="frame"><img src="fotos/foto2.jpg"></div>
+<p class="caption">Desde que te conocí, me atrapaste. No tenía en mis planes ilusionarme de más, pero con vos no pude.</p></section>
+
+<section class="chapter reveal"><div class="frame"><img src="fotos/foto3.jpg"></div>
+<p class="caption">Cuando me sonreís, me mirás, me hablás con ternura, no puedo explicarte con palabras lo que me hacés sentir y solo quedo mirándote maravillado.</p></section>
+
+<section class="chapter reveal"><div class="frame"><img src="fotos/foto4.jpg"></div>
+<p class="caption">Con vos siento que puedo animarme a todo. No le tengo miedo a nada. Quiero ser tu hombre, mimarte, hacer realidad tus caprichos, resolverte la vida con amor.</p></section>
+
+<section class="chapter reveal"><div class="frame"><img src="fotos/foto5.png"></div>
+<p class="caption">Voy a seguir queriendo conquistar tu corazón todos los días, porque de verdad te quiero conmigo para el resto de la vida.</p></section>
+
+<section class="chapter final reveal"><div class="frame"><img src="fotos/foto6.jpg"></div>
+<div class="divider"></div><p class="caption">Por eso te quería preguntar, con todo mi amor, si…</p>
+<div class="question">¿Querés ser mi mujer,<br>mi todo, para siempre?</div><div class="divider"></div>♡</section>
+</div></main>
+<script>
+const texts=[
+"Si llegaste hasta acá, es porque sos una persona muy especial en mi historia.",
+"Una hermosa historia que recién empieza y que quiero seguir escribiendo con vos.",
+"Y ahora quiero hacerte una pregunta…"];
+let n=0;
+bar.onclick=()=>{if(n>=3)return;n++;fill.style.width=(n*33.333)+'%';stage.textContent=texts[n-1];hint.textContent=n<3?'TOQUE '+(n+1)+' DE 3':'LISTO ❤️';
+if(n===3)setTimeout(()=>{intro.classList.add('hidden');story.classList.remove('hidden');window.scrollTo(0,0);document.querySelectorAll('.reveal').forEach((e,i)=>setTimeout(()=>e.classList.add('visible'),i*300))},900)};
+</script></body></html>
